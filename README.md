@@ -1,1 +1,788 @@
-# boo
+<!doctype html>
+<html lang="ko">
+<head>
+ <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>boo 중고폰 | 믿고 사는 중고폰</title>
+  <meta name="description" content="boo 중고폰 - 아이폰/갤럭시/태블릿 중고폰 당일검수 · 안전거래 · 빠른배송" />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#111827;
+      --muted:#6b7280;
+      --line:#e5e7eb;
+      --card:#ffffff;
+      --shadow: 0 12px 30px rgba(17,24,39,.08);
+      --orange:#174E8C;
+      --orange2:#84ADE1;
+      --orangeSoft: rgba(29, 98, 245, 0.1);
+      --radius:18px;
+      --radius2:26px;
+      --max:1160px;
+    }
+    *{box-sizing:border-box}
+   body{
+  margin:0;
+  font-family: "SUIT", -apple-system, BlinkMacSystemFont,
+               "Apple SD Gothic Neo", "Noto Sans KR", sans-serif;
+  color:var(--text);
+
+  background:
+    radial-gradient(1200px 600px at 80% 0%, rgba(6, 69, 243, 0.18), transparent 60%),
+    radial-gradient(900px 500px at 0% 10%, rgba(6, 167, 253, 0.35), transparent 55%),
+    #f4f9ff;
+}
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: rgba(255,255,255,.82);
+      backdrop-filter: blur(10px);
+      border-bottom:1px solid rgba(229,231,235,.8);
+    }
+    .topbar-inner{
+      display:flex; align-items:center; gap:14px;
+      height:68px;
+    }
+    .brand{display:flex; align-items:center; gap:10px; min-width:180px}
+    .logo{
+      width:40px; height:40px; border-radius:14px;
+      background: linear-gradient(135deg, var(--orange), var(--orange2));
+      display:grid; place-items:center;
+      box-shadow: 0 10px 22px rgba(11, 7, 255, 0.25);
+      color:#fff; font-weight:900; letter-spacing:-.5px;
+    }
+    .brand strong{font-size:18px; letter-spacing:-.4px}
+    .brand span{display:block; font-size:12px; color:var(--muted); margin-top:2px}
+    .search{
+      flex:1; display:flex; align-items:center; gap:10px;
+      background:#fff; border:1px solid var(--line); border-radius:999px;
+      padding:10px 14px;
+      box-shadow: 0 6px 16px rgba(71, 129, 253, 0.05);
+    }
+    .search input{
+      border:none; outline:none; width:100%;
+      font-size:14px;
+    }
+    .pill{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+      transition:.15s ease;
+      user-select:none;
+    }
+    .pill:hover{transform: translateY(-1px); box-shadow: 0 10px 22px rgba(17,24,39,.06)}
+    .pill.primary{
+      background: linear-gradient(135deg, var(--orange), var(--orange2));
+      color:#fff; border-color: transparent;
+      box-shadow: 0 14px 28px rgba(16, 32, 255, 0.22);
+      font-weight:700;
+    }
+
+    .hero{padding:28px 0 8px}
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap:18px;
+      align-items:stretch;
+    }
+    .hero-left{
+      background: linear-gradient(180deg, rgba(255,255,255,.9), rgba(255,255,255,.75));
+      border:1px solid rgba(229,231,235,.9);
+      border-radius: var(--radius2);
+      padding:26px;
+      box-shadow: var(--shadow);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero-left:before{
+      content:"";
+      position:absolute; inset:-120px -140px auto auto;
+      width:360px; height:360px; border-radius:50%;
+      background: radial-gradient(circle at 30% 30%, rgba(9, 136, 175, 0.28), rgba(47, 96, 255, 0) 62%);
+      filter: blur(0px);
+    }
+    .badge{
+      display:inline-flex; align-items:center; gap:8px;
+      padding:8px 12px;
+      background: var(--orangeSoft);
+      border:1px solid rgba(29, 43, 241, 0.22);
+      border-radius:999px;
+      color:#84ADE1;
+      font-size:13px;
+      font-weight:700;
+    }
+    h1{
+      margin:14px 0 10px;
+      font-size:42px;
+      letter-spacing:-1.2px;
+      line-height:1.10;
+    }
+    .sub{
+      color:var(--muted);
+      font-size:15px;
+      line-height:1.55;
+      max-width:46ch;
+    }
+    .hero-cta{display:flex; gap:10px; flex-wrap:wrap; margin-top:18px}
+    .mini-row{display:flex; gap:10px; flex-wrap:wrap; margin-top:16px; color:#84ADE1; font-size:13px}
+    .mini{
+      display:flex; align-items:center; gap:8px;
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius:14px;
+      padding:10px 12px;
+    }
+
+    .hero-right{
+      display:grid; gap:14px;
+    }
+    .panel{
+      background:#fff;
+      border:1px solid var(--line);
+      border-radius: var(--radius2);
+      padding:18px;
+      box-shadow: var(--shadow);
+    }
+    .panel h3{margin:0 0 10px; font-size:16px; letter-spacing:-.3px}
+    .grid2{display:grid; grid-template-columns: 1fr 1fr; gap:12px}
+    .stat{
+      border:1px solid var(--line);
+      border-radius:18px;
+      padding:14px;
+      background: linear-gradient(180deg, #fff, rgba(2, 90, 117, 0.04));
+    }
+    .stat strong{display:block; font-size:18px}
+    .stat span{color:var(--muted); font-size:12px}
+
+    .section{padding:18px 0 6px}
+    .section-head{
+      display:flex; align-items:flex-end; justify-content:space-between;
+      gap:12px;
+      margin:6px 0 12px;
+    }
+    .section-head h2{margin:0; font-size:20px; letter-spacing:-.4px}
+    .section-head p{margin:0; color:var(--muted); font-size:13px}
+
+    .cats{
+      display:flex; gap:10px; flex-wrap:wrap;
+    }
+    .cat{
+      padding:10px 14px;
+      border-radius:999px;
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+      transition:.15s ease;
+      font-size:14px;
+    }
+    .cat.active{
+      border-color: rgba(46, 49, 241, 0.45);
+      background: rgba(38, 78, 255, 0.08);
+      color:#84ADE1;
+      font-weight:800;
+    }
+
+    .products{
+      display:grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap:14px;
+      margin-top:12px;
+    }
+    .card{
+      border:1px solid var(--line);
+      background:var(--card);
+      border-radius: var(--radius);
+      overflow:hidden;
+      box-shadow: 0 10px 22px rgba(79, 130, 240, 0.06);
+      transition:.15s ease;
+      display:flex; flex-direction:column;
+      min-height: 360px;
+    }
+    .card:hover{transform: translateY(-3px); box-shadow: 0 16px 36px rgba(17,24,39,.10)}
+    .thumb{
+      height:170px;
+      background: linear-gradient(135deg, rgba(39, 236, 236, 0.16), rgba(255,255,255,.0));
+      position:relative;
+      display:grid; place-items:center;
+    }
+    .thumb img{
+      width:82%; height:82%; object-fit:contain;
+      filter: drop-shadow(0 16px 18px rgba(42, 79, 241, 0.12));
+    }
+    .tagrow{
+      position:absolute; left:12px; top:12px;
+      display:flex; gap:8px; flex-wrap:wrap;
+    }
+    .tag{
+      font-size:12px; font-weight:800;
+      padding:6px 10px; border-radius:999px;
+      background:#fff; border:1px solid var(--line);
+      color:#374151;
+    }
+    .tag.hot{border-color: rgba(83, 203, 224, 0.35); background: rgba(86, 112, 230, 0.1); color:#3d65eb}
+    .body{padding:14px 14px 12px; display:flex; flex-direction:column; gap:8px; flex:1}
+    .title{font-weight:900; letter-spacing:-.3px; line-height:1.25}
+    .desc{color:var(--muted); font-size:13px; line-height:1.45; min-height:36px}
+    .price{
+      display:flex; align-items:baseline; justify-content:space-between; gap:10px;
+      margin-top:auto;
+    }
+    .price strong{font-size:18px; letter-spacing:-.4px}
+    .price del{color:#9ca3af; font-size:12px}
+    .btnrow{display:flex; gap:10px; margin-top:10px}
+    .btn{
+      flex:1;
+      display:inline-flex; align-items:center; justify-content:center; gap:8px;
+      padding:10px 12px;
+      border-radius:14px;
+      border:1px solid var(--line);
+      background:#fff;
+      cursor:pointer;
+      font-weight:800;
+      transition:.12s ease;
+    }
+    .btn:hover{transform: translateY(-1px); box-shadow: 0 12px 22px rgba(17,24,39,.08)}
+    .btn.buy{
+      background: linear-gradient(135deg, var(--orange), var(--orange2));
+      color:#fff; border-color:transparent;
+      box-shadow: 0 14px 28px rgba(84, 112, 236, 0.2);
+    }
+
+    .banner{
+      margin:18px 0 0;
+      border-radius: var(--radius2);
+      border:1px solid rgba(72, 244, 250, 0.22);
+      background: linear-gradient(135deg, rgba(39, 158, 226, 0.14), rgba(59, 156, 236, 0));
+      padding:16px 18px;
+      display:flex; align-items:center; justify-content:space-between; gap:12px;
+    }
+    .banner strong{font-size:16px}
+    .banner span{color:var(--muted); font-size:13px; display:block; margin-top:4px}
+
+    footer{
+      margin-top:24px;
+      border-top:1px solid rgba(229,231,235,.9);
+      padding:18px 0 26px;
+      color:var(--muted);
+      font-size:12px;
+    }
+
+    /* Modal */
+    .modal-back{
+      position:fixed; inset:0;
+      background: rgba(0,0,0,.45);
+      display:none; align-items:center; justify-content:center;
+      padding:18px;
+      z-index:80;
+    }
+    .modal{
+      width:min(860px, 96vw);
+      background:#fff; border-radius: 22px;
+      border:1px solid var(--line);
+      box-shadow: 0 24px 60px rgba(0,0,0,.25);
+      overflow:hidden;
+    }
+    .modal-top{
+      display:flex; align-items:center; justify-content:space-between;
+      padding:14px 16px; border-bottom:1px solid var(--line);
+    }
+    .modal-top strong{letter-spacing:-.3px}
+    .x{cursor:pointer; border:1px solid var(--line); background:#fff; border-radius:12px; padding:8px 10px; font-weight:900}
+    .modal-grid{
+      display:grid; grid-template-columns: 1fr 1.1fr;
+      gap:0;
+    }
+    .modal-left{
+      padding:18px; background: linear-gradient(135deg, rgba(31, 101, 230, 0.12), rgba(73, 110, 230, 0));
+      border-right:1px solid var(--line);
+      display:grid; place-items:center;
+      min-height:360px;
+    }
+    .modal-left img{width:86%; height:86%; object-fit:contain; filter: drop-shadow(0 18px 22px rgba(17,24,39,.18))}
+    .modal-right{padding:18px}
+    .kv{display:grid; grid-template-columns: 110px 1fr; gap:10px 12px; font-size:14px; margin-top:12px}
+    .kv div{padding:9px 0; border-bottom:1px dashed rgba(229,231,235,.9)}
+    .kv b{color:#374151}
+    .modal-actions{display:flex; gap:10px; margin-top:14px}
+
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+      h1{font-size:36px}
+      .products{grid-template-columns: repeat(2, 1fr)}
+      .brand{min-width:auto}
+    }
+    @media (max-width: 520px){
+      .products{grid-template-columns:1fr}
+      .search{display:none}
+      h1{font-size:32px}
+      .modal-grid{grid-template-columns:1fr}
+      .modal-left{border-right:none; border-bottom:1px solid var(--line)}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="wrap">
+      <div class="topbar-inner">
+        <a class="brand" href="#" onclick="resetFilters(); return false;">
+          <div class="logo">boo</div>
+          <div>
+            <strong>boo 중고폰</strong>
+            <span>스마트스토어 느낌 · 빠른 거래</span>
+          </div>
+        </a>
+
+        <div class="search" title="상품 검색">
+          🔎
+          <input id="q" placeholder="예: 아이폰 13 / 갤럭시 S23 / 아이패드" />
+        </div>
+
+        <div style="display:flex; gap:10px; align-items:center;">
+          <a class="pill" href="#products">상품보기</a>
+          <a class="pill primary" href="#" onclick="openKakao(); return false;">상담하기</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <div class="badge">✅ 당일 검수 · ✅ 안전거래 · ✅ 빠른배송</div>
+          <h1>
+            믿고 사는 <span style="color:var(--orange)">boo 중고폰</span><br/>
+            아이폰 · 갤럭시 · 태블릿
+          </h1>
+          <p class="sub">
+            상태/등급 투명 공개, 배터리/기능 점검 후 출고.
+            필요하면 구매 전 실사진/영상도 보내드립니다.
+          </p>
+
+          <div class="hero-cta">
+            <a class="pill primary" href="#products">지금 바로 구매하기</a>
+            <a class="pill" href="#" onclick="openKakao(); return false;">카톡으로 재고 문의</a>
+            <a class="pill" href="#how">구매 절차 보기</a>
+          </div>
+
+          <div class="mini-row">
+            <div class="mini">🛡️ 7일 이내 초기불량 지원</div>
+            <div class="mini">🔋 배터리 상태 안내</div>
+            <div class="mini">🚚 당일/익일 발송</div>
+          </div>
+        </div>
+
+        <div class="hero-right">
+          <div class="panel">
+            <h3>오늘의 인기</h3>
+            <div class="grid2" id="hotStats"></div>
+          </div>
+
+          <div class="panel">
+            <h3>안심 포인트</h3>
+            <div class="grid2">
+              <div class="stat"><strong>검수 리포트</strong><span>기능/외관/배터리 체크</span></div>
+              <div class="stat"><strong>등급 기준</strong><span>A/S/스크래치 기준 안내</span></div>
+              <div class="stat"><strong>실사진 제공</strong><span>요청 시 실물 확인 가능</span></div>
+              <div class="stat"><strong>빠른 상담</strong><span>카톡으로 재고/가격 안내</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner">
+        <div>
+          <strong>🧡 지금 구매하면 무료 포장 + 간단 액세서리 동봉</strong>
+          <span>상황에 따라 구성은 변경될 수 있어요.</span>
+        </div>
+        <a class="pill primary" href="#products">재고 확인</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Categories + Products -->
+  <div class="section" id="products">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>상품 리스트</h2>
+          <p>카테고리/검색으로 빠르게 찾기</p>
+        </div>
+        <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+          <span style="color:var(--muted); font-size:13px;">정렬</span>
+          <div class="pill" onclick="setSort('popular')">인기순</div>
+          <div class="pill" onclick="setSort('low')">가격↓</div>
+          <div class="pill" onclick="setSort('high')">가격↑</div>
+        </div>
+      </div>
+
+      <div class="cats" id="cats"></div>
+      <div class="products" id="grid"></div>
+    </div>
+  </div>
+
+  <!-- How -->
+  <div class="section" id="how">
+    <div class="wrap">
+      <div class="section-head">
+        <div>
+          <h2>구매 절차</h2>
+          <p>스마트스토어 느낌으로 간단하게</p>
+        </div>
+      </div>
+
+      <div class="products" style="grid-template-columns: repeat(4, 1fr);">
+        <div class="card" style="min-height:240px">
+          <div class="body">
+            <div class="title">1) 상품 선택</div>
+            <div class="desc">카테고리/검색으로 모델·용량·색상 확인</div>
+            <div class="mini">🔎 원하는 조건 찾기</div>
+          </div>
+        </div>
+        <div class="card" style="min-height:240px">
+          <div class="body">
+            <div class="title">2) 상태 확인</div>
+            <div class="desc">등급/배터리/검수 결과를 투명하게 안내</div>
+            <div class="mini">✅ 검수 리포트 제공</div>
+          </div>
+        </div>
+        <div class="card" style="min-height:240px">
+          <div class="body">
+            <div class="title">3) 결제/상담</div>
+            <div class="desc">안전거래로 진행, 필요하면 카톡으로 바로 상담</div>
+            <div class="mini">💬 빠른 응대</div>
+          </div>
+        </div>
+        <div class="card" style="min-height:240px">
+          <div class="body">
+            <div class="title">4) 출고/수령</div>
+            <div class="desc">검수 후 포장, 당일/익일 출고</div>
+            <div class="mini">🚚 빠른 배송</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="wrap">
+      <div style="display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+        <div>
+          <b style="color:#374151">boo 중고폰</b><br/>
+          사업자 정보/통신판매업/고객센터 문구는 운영 정보에 맞게 수정하세요.
+        </div>
+        <div style="text-align:right;">
+          고객센터: 010-0000-0000<br/>
+          운영시간: 10:00 - 19:00 (연중무휴/휴무일 표기)
+        </div>
+      </div>
+      <div style="margin-top:10px;">
+        © <span id="yy"></span> boo used phone. All rights reserved.
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal-back" id="mb" onclick="closeModal(event)">
+    <div class="modal" onclick="event.stopPropagation()">
+      <div class="modal-top">
+        <strong id="mTitle">상품 상세</strong>
+        <button class="x" onclick="hideModal()">닫기 ✕</button>
+      </div>
+      <div class="modal-grid">
+        <div class="modal-left">
+          <img id="mImg" alt="product"/>
+        </div>
+        <div class="modal-right">
+          <div style="display:flex; gap:8px; flex-wrap:wrap" id="mTags"></div>
+
+          <div style="margin-top:10px; display:flex; align-items:baseline; justify-content:space-between; gap:10px;">
+            <div>
+              <div style="color:var(--muted); font-size:13px;">판매가</div>
+              <div style="font-size:22px; font-weight:900;" id="mPrice"></div>
+            </div>
+            <div style="text-align:right;">
+              <div style="color:var(--muted); font-size:13px;">정가</div>
+              <div style="font-size:13px; color:#9ca3af;" id="mOld"></div>
+            </div>
+          </div>
+
+          <div class="kv" id="mKv"></div>
+
+          <div class="modal-actions">
+            <button class="btn" onclick="openKakao()">재고 문의</button>
+            <button class="btn buy" onclick="buyNow()">바로 구매</button>
+          </div>
+
+          <div style="margin-top:10px; color:var(--muted); font-size:12px; line-height:1.5;">
+            * 구매/배송/환불 정책 문구는 실제 운영 정책에 맞게 수정하세요.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+  // ✅ 여기 JSON만 바꾸면 상품/카테고리/검색이 자동 반영됩니다.
+  const PRODUCTS = [
+    {
+      id: "P001",
+      category: "아이폰",
+      name: "아이폰 13 128GB (A급)",
+      desc: "기능 이상 없음 · 생활기스 최소 · 배터리 86%",
+      price: 429000,
+      oldPrice: 499000,
+      grade: "A급",
+      battery: "86%",
+      color: "미드나이트",
+      storage: "128GB",
+      carrier: "자급제",
+      ship: "당일/익일 발송",
+      tags: ["인기", "검수완료"],
+      img: "https://dummyimage.com/640x420/fff3ea/ff6a00&text=iPhone+13"
+    },
+    {
+      id: "P002",
+      category: "아이폰",
+      name: "아이폰 12 64GB (B급)",
+      desc: "외관 스크래치 소량 · 배터리 82%",
+      price: 279000,
+      oldPrice: 319000,
+      grade: "B급",
+      battery: "82%",
+      color: "화이트",
+      storage: "64GB",
+      carrier: "자급제",
+      ship: "익일 발송",
+      tags: ["가성비"],
+      img: "https://dummyimage.com/640x420/fff3ea/ff6a00&text=iPhone+12"
+    },
+    {
+      id: "P003",
+      category: "갤럭시",
+      name: "갤럭시 S23 256GB (A급)",
+      desc: "카메라/스피커/충전포트 점검 완료",
+      price: 599000,
+      oldPrice: 699000,
+      grade: "A급",
+      battery: "양호",
+      color: "그린",
+      storage: "256GB",
+      carrier: "자급제",
+      ship: "당일 발송",
+      tags: ["인기", "추천"],
+      img: "https://dummyimage.com/640x420/fff3ea/ff6a00&text=Galaxy+S23"
+    },
+    {
+      id: "P004",
+      category: "태블릿",
+      name: "아이패드 9세대 64GB (A급)",
+      desc: "학습/필기용 추천 · 화면 잔상 없음",
+      price: 309000,
+      oldPrice: 369000,
+      grade: "A급",
+      battery: "양호",
+      color: "스페이스그레이",
+      storage: "64GB",
+      carrier: "Wi-Fi",
+      ship: "익일 발송",
+      tags: ["추천"],
+      img: "https://dummyimage.com/640x420/fff3ea/ff6a00&text=iPad+9th"
+    }
+  ];
+
+  const CATS = ["전체", ...Array.from(new Set(PRODUCTS.map(p => p.category)))];
+  let state = { cat:"전체", q:"", sort:"popular" };
+
+  const elCats = document.getElementById("cats");
+  const elGrid = document.getElementById("grid");
+  const elQ = document.getElementById("q");
+
+  function money(n){
+    return new Intl.NumberFormat("ko-KR").format(n) + "원";
+  }
+
+  function renderCats(){
+    elCats.innerHTML = "";
+    CATS.forEach(c=>{
+      const b = document.createElement("button");
+      b.className = "cat" + (state.cat===c ? " active":"");
+      b.textContent = c;
+      b.onclick = ()=>{ state.cat=c; render(); };
+      elCats.appendChild(b);
+    });
+  }
+
+  function sortList(list){
+    if(state.sort==="low") return [...list].sort((a,b)=>a.price-b.price);
+    if(state.sort==="high") return [...list].sort((a,b)=>b.price-a.price);
+    // popular: tags에 "인기" 있으면 상단
+    return [...list].sort((a,b)=>{
+      const ap = (a.tags||[]).includes("인기") ? 1:0;
+      const bp = (b.tags||[]).includes("인기") ? 1:0;
+      return bp-ap;
+    });
+  }
+
+  function filtered(){
+    const q = (state.q||"").trim().toLowerCase();
+    return PRODUCTS.filter(p=>{
+      const catOk = state.cat==="전체" ? true : p.category===state.cat;
+      const qOk = !q ? true : (p.name+p.desc+p.category).toLowerCase().includes(q);
+      return catOk && qOk;
+    });
+  }
+
+  function renderGrid(list){
+    elGrid.innerHTML = "";
+    if(list.length===0){
+      elGrid.innerHTML = `<div style="grid-column:1/-1; padding:18px; color:var(--muted); border:1px dashed var(--line); border-radius:18px; background:#fff;">
+        조건에 맞는 상품이 없어요. 검색어/카테고리를 바꿔보세요.
+      </div>`;
+      return;
+    }
+    list.forEach(p=>{
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const tags = (p.tags||[]).map(t=>{
+        const hot = (t==="인기" || t==="추천") ? " hot":"";
+        return `<span class="tag${hot}">${t}</span>`;
+      }).join("");
+
+      card.innerHTML = `
+        <div class="thumb">
+          <div class="tagrow">${tags}</div>
+          <img src="${p.img}" alt="${p.name}" loading="lazy" />
+        </div>
+        <div class="body">
+          <div class="title">${p.name}</div>
+          <div class="desc">${p.desc}</div>
+          <div class="price">
+            <div>
+              <strong>${money(p.price)}</strong><br/>
+              <del>${money(p.oldPrice)}</del>
+            </div>
+            <div style="text-align:right; color:var(--muted); font-size:12px;">
+              ${p.grade} · 배터리 ${p.battery}
+            </div>
+          </div>
+          <div class="btnrow">
+            <button class="btn" onclick='openDetail("${p.id}")'>상세</button>
+            <button class="btn buy" onclick='quickBuy("${p.id}")'>구매</button>
+          </div>
+        </div>
+      `;
+      elGrid.appendChild(card);
+    });
+  }
+
+  function renderHotStats(){
+    const hot = PRODUCTS.filter(p=>(p.tags||[]).includes("인기")).slice(0,2);
+    const box = document.getElementById("hotStats");
+    box.innerHTML = "";
+    const a = hot[0] || PRODUCTS[0];
+    const b = hot[1] || PRODUCTS[1];
+
+    [a,b].forEach(p=>{
+      const div = document.createElement("div");
+      div.className = "stat";
+      div.innerHTML = `<strong>${p.name.split("(")[0].trim()}</strong><span>${money(p.price)} · ${p.grade}</span>`;
+      div.onclick = ()=>openDetail(p.id);
+      div.style.cursor="pointer";
+      box.appendChild(div);
+    });
+  }
+
+  function render(){
+    renderCats();
+    const list = sortList(filtered());
+    renderGrid(list);
+    renderHotStats();
+  }
+
+  // 검색 이벤트
+  elQ?.addEventListener("input", (e)=>{
+    state.q = e.target.value;
+    render();
+  });
+
+  function setSort(s){ state.sort=s; render(); }
+
+  function resetFilters(){
+    state = { cat:"전체", q:"", sort:"popular" };
+    if(elQ) elQ.value = "";
+    render();
+    window.scrollTo({ top:0, behavior:"smooth" });
+  }
+
+  // 상담/구매 버튼 동작(원하는 링크로 바꾸세요)
+  function openKakao(){
+    // TODO: 카카오톡 채널/오픈채팅 링크로 교체
+    alert("카카오 상담 링크를 연결하세요! (openKakao 함수 수정)");
+  }
+  function buyNow(){
+    alert("결제/구매 링크를 연결하세요! (buyNow 함수 수정)");
+  }
+  function quickBuy(id){
+    const p = PRODUCTS.find(x=>x.id===id);
+    openDetail(id);
+    // 원하면 여기서 바로 결제 링크로 이동하게 바꿀 수 있어요.
+  }
+
+  // Modal
+  function openDetail(id){
+    const p = PRODUCTS.find(x=>x.id===id);
+    if(!p) return;
+
+    document.getElementById("mTitle").textContent = p.name;
+    document.getElementById("mImg").src = p.img;
+    document.getElementById("mPrice").textContent = money(p.price);
+    document.getElementById("mOld").textContent = money(p.oldPrice);
+
+    const tags = document.getElementById("mTags");
+    tags.innerHTML = (p.tags||[]).map(t=>{
+      const hot = (t==="인기" || t==="추천") ? " hot":"";
+      return `<span class="tag${hot}">${t}</span>`;
+    }).join("");
+
+    const kv = document.getElementById("mKv");
+    kv.innerHTML = `
+      <div><b>카테고리</b></div><div>${p.category}</div>
+      <div><b>등급</b></div><div>${p.grade}</div>
+      <div><b>배터리</b></div><div>${p.battery}</div>
+      <div><b>색상</b></div><div>${p.color}</div>
+      <div><b>용량</b></div><div>${p.storage}</div>
+      <div><b>통신</b></div><div>${p.carrier}</div>
+      <div><b>배송</b></div><div>${p.ship}</div>
+      <div><b>상품코드</b></div><div>${p.id}</div>
+    `;
+
+    showModal();
+  }
+  function showModal(){
+    document.getElementById("mb").style.display = "flex";
+    document.body.style.overflow = "hidden";
+  }
+  function hideModal(){
+    document.getElementById("mb").style.display = "none";
+    document.body.style.overflow = "auto";
+  }
+  function closeModal(e){
+    if(e.target.id==="mb") hideModal();
+  }
+
+  document.getElementById("yy").textContent = new Date().getFullYear();
+  render();
+</script>
+</body>
+</html>
